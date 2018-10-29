@@ -27,16 +27,12 @@ export default {
     this.map.on('load', () => {
       this.map.addLayer({
         id: "streamlines",
-        "source-layer": "leerdamwest_map_streamlines-60ng7o",
+        "source-layer": "leerdamwest_map_waterdepth_00-al26zk",
         source: {
-          type: "vector",
-          url: "mapbox://camvdvries.aycl74i7"
+          type: "raster",
+          url: "mapbox://siggyf.a1v32u6m"
         },
-        type: "line",
-        paint: {
-          "line-color": "rgb(177, 147, 251)",
-          "line-opacity": 0.56,
-          "line-width": 2 }
+        type: "raster"
       });
     })
   }
@@ -49,6 +45,8 @@ export default {
 html, body {
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
