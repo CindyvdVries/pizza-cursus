@@ -1,5 +1,17 @@
 <template>
   <div id="app">
+    <v-navigation-drawer id="navdrawer" app v-model="drawer">
+
+      <v-switch
+        label="Switch Streamline layer"
+        v-model="streamlineSwitch"
+      >
+      </v-switch>
+    </v-navigation-drawer>
+    <v-toolbar xs6 color="grey lighten-4" fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Pretty Viewer example</v-toolbar-title>
+    </v-toolbar>
     <v-mapbox
       access-token="pk.eyJ1Ijoic2lnZ3lmIiwiYSI6Il8xOGdYdlEifQ.3-JZpqwUa3hydjAJFXIlMA"
       map-style="mapbox://styles/mapbox/dark-v9"
@@ -19,7 +31,20 @@ export default {
   name: 'app',
   data() {
     return {
-      map: null
+      map: null,
+      drawer: true,
+      streamlineSwitch: true
+    }
+  },
+  watch: {
+    streamlineSwitch: {
+      handler: function(streamlineSwitch){
+        if (streamlineSwitch){
+          this.map.setLayoutProperty('streamlines', 'visibility', 'visible');
+        } else {
+          this.map.setLayoutProperty('streamlines', 'visibility', 'none');
+        }
+      }
     }
   },
   mounted() {
