@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <v-navigation-drawer id="navdrawer" app v-model="drawer">
-
       <v-switch
         label="Switch Streamline layer"
         v-model="streamlineSwitch"
       >
       </v-switch>
     </v-navigation-drawer>
-    <v-toolbar xs6 color="grey lighten-4" fixed app>
+     <v-toolbar xs6 color="grey lighten-4" fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>Pretty Viewer example</v-toolbar-title>
     </v-toolbar>
@@ -74,6 +73,8 @@ export default {
 html, body {
   width: 100vw;
   height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
